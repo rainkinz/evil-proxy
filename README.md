@@ -34,7 +34,7 @@ $ https_proxy=http://localhost:8080 curl https://github.com
 # =>
 # curl: (60) SSL certificate problem: Invalid certificate chain
 # More details here: http://curl.haxx.se/docs/sslcerts.html
-# 
+#
 # curl performs SSL certificate verification by default, using a "bundle"
 #  of Certificate Authority (CA) public keys (CA certs). If the default
 #  bundle file isn't adequate, you can specify an alternate file
@@ -68,7 +68,7 @@ proxy = EvilProxy::HTTPProxyServer.new Port: 8080
 
 proxy.before_request do |req|
   # Do evil things
-  # Note that, different from Webrick::HTTPProxyServer, 
+  # Note that, different from Webrick::HTTPProxyServer,
   #   `req.body` is writable.
 end
 
@@ -82,11 +82,11 @@ trap "TERM" do proxy.shutdown end
 proxy.start
 ```
 
-Available hooks including `when_initialize`, `when_start`, `when_shutdown`, 
+Available hooks including `when_initialize`, `when_start`, `when_shutdown`,
   `before_request`, `before_response`, `(before|after)_(get|head|post|options|connect)`.
 
 #### Plugin: store
-  
+
 If you want to save the network traffic, you can use `store` plugin,
   network traffic will be saved in `store.yml`.
 ```ruby
