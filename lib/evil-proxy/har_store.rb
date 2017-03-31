@@ -19,12 +19,13 @@ EvilProxy::MITMProxyServer.class_eval do
 
   before_response do |req, res|
 
-    # TODO: Get the title
+    # TODO: Get the title and page timings
+    title = "Undefined"
 
     page = HAR::Page.new({
       :id => req.unparsed_uri,
       :started_date_time => @started_date_time.iso8601,
-      :title => "undefined",
+      :title => title,
       :page_timings => []
     }, [])
 
@@ -128,7 +129,6 @@ EvilProxy::MITMProxyServer.class_eval do
         :version => EvilProxy::VERSION
       }
     )
-
   end
 
   def dump_store(filename = "store.har")
