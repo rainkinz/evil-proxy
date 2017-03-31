@@ -2,7 +2,8 @@ require "evil-proxy/version"
 require "evil-proxy/httpproxy"
 require "evil-proxy/mitmproxy"
 require "evil-proxy/httprequest"
+require "evil-proxy/utils/content"
 
 module EvilProxy
-  # Your code goes here...
+  class Error < RuntimeError; end
 end
